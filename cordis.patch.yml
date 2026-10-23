@@ -1,0 +1,29 @@
+# ============================================================================
+# dsh-taskbar-glow —— DSH bundle patch
+# ============================================================================
+# 把「任务栏发光提示」插入 Host 配置树。
+#
+# 下面的 config 就是插件的全部开关：改完保存后，DSH 会热重载这条配置
+# （改 JS 代码才需要重启应用）。
+# ============================================================================
+
+- insert:
+    - id: taskbar-glow
+      name: dsh-taskbar-glow
+      config:
+        # 总开关
+        enabled: true
+        # 一轮对话跑完（agent 从 running 回到 idle）时闪烁
+        onTurnEnd: true
+        # 弹出审批请求、等你点「允许 / 拒绝」时闪烁
+        onApproval: true
+        # AI 用 ask_user_question 提问、等你回答时闪烁
+        onQuestion: true
+        # DSH 窗口已经在前台时不闪（你已经看得见了）
+        skipWhenFocused: true
+        # /flash 命令与测试链接的延迟：留出切到别的窗口的时间
+        testDelaySeconds: 5
+        # 闪烁多少秒后停下；0 = 一直闪到你把 DSH 切回前台
+        stopAfterSeconds: 0
+        # 是否写诊断日志到 <DSH_HOME>/taskbar-glow/taskbar-glow.log
+        log: true

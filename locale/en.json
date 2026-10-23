@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Taskbar Attention Glow",
+    "description": "Flashes the DSH taskbar icon when a turn finishes in the background or when an approval / question is waiting for you. Stays quiet while the DSH window is in the foreground."
+  }
+}

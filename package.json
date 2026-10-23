@@ -1,0 +1,53 @@
+{
+  "name": "dsh-taskbar-glow",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DSH 后台完成一轮或需要人工介入时，闪烁 Windows 任务栏图标提醒你。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "taskbar",
+    "notification"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanmoxu9/dsh-taskbar-glow.git"
+  },
+  "homepage": "https://github.com/hanmoxu9/dsh-taskbar-glow#readme",
+  "bugs": {
+    "url": "https://github.com/hanmoxu9/dsh-taskbar-glow/issues"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  }
+}
